@@ -7,9 +7,9 @@ console.log(tripId);
 }, function(response){
 //console.log(response);
 });
-		$.get('https://maps.roadtrippers.com/api/v2/trips/'+tripId, function(data) {
+	/*	$.get('https://maps.roadtrippers.com/api/v2/trips/'+tripId, function(data) {
 			console.log(data);
-		});
+		});*/
 	});
 });
 //29300446
