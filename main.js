@@ -5,8 +5,17 @@ console.log(tripId);
 		$.post('final.php', {
      tripId:tripId
 }, function(response){
-//console.log(response);
+
 });
+				$.post('trip.php', {
+     tripId:tripId
+}, function(data){
+console.log(data);
+var final = JSON.parse(data)
+var thisthing = final.trip.name;
+console.log(thisthing);
+});
+
 	/*	$.get('https://maps.roadtrippers.com/api/v2/trips/'+tripId, function(data) {
 			console.log(data);
 		});*/

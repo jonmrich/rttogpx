@@ -86,5 +86,6 @@ if ($err) {
     header("Content-Type: application/gpx+xml");
     header("Content-Disposition: attachment; filename=" . $trip_name . ".gpx");
     echo $gpx_file->toXML()->saveXML();
+    
     exit();
 }
