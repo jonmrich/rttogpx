@@ -85,6 +85,7 @@ if ($err) {
     //$gpx_file->save($trip_name . '.json', \phpGPX\phpGPX::JSON_FORMAT);
     header("Content-Type: application/gpx+xml");
     header("Content-Disposition: attachment; filename=" . $trip_name . ".gpx");
+    header("Content-Type:application/force-download");
     echo $gpx_file->toXML()->saveXML();
     
     exit();
