@@ -2,10 +2,10 @@ $(document).ready(function() {
 	$('#get-cal').click(function(event) {
 		var tripId = $('#tripId').val();
 console.log(tripId);
-		$.post('final.php', {
+		$.post('gpx_files/final.php', {
      tripId:tripId
 }, function(response){
-
+console.log(response)
 });
 				$.post('trip.php', {
      tripId:tripId

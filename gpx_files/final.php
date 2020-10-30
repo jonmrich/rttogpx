@@ -7,7 +7,7 @@ use phpGPX\Models\Point;
 use phpGPX\Models\Segment;
 use phpGPX\Models\Track;
 
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 $tripId = $_POST["tripId"];
 //$tripId = 26811305;
@@ -81,7 +81,8 @@ if ($err) {
     $track->recalculateStats();
     //add track to gpx
     $gpx_file->tracks[] = $track;
- // $gpx_file->save($trip_name . '.gpx', \phpGPX\phpGPX::XML_FORMAT);
+     $string = bin2hex(openssl_random_pseudo_bytes(1));
+  $gpx_file->save($trip_name .'-'.$string. '.gpx', \phpGPX\phpGPX::XML_FORMAT);
 
     //$gpx_file->save($trip_name . '.json', \phpGPX\phpGPX::JSON_FORMAT);
    
@@ -89,11 +90,12 @@ if ($err) {
    // header("Content-Type: application/gpx+xml");
    // header("Content-Disposition: attachment; filename=" . $trip_name . ".gpx");
 //echo $gpx_file->toXML()->saveXML();
-    $fp = fopen($new_file,'w');
+   
+    $fp = fopen($gpx_file,'w');
     fwrite($fp,$gpx_file);
     fclose($fp);
-    $full_url = 'https://rt-to-gpx.herokuapp.com/gpx_files/'. $trip_name . ".gpx";
-    echo $full_ulr;
+    $full_url = 'https://rt-to-gpx.herokuapp.com/gpx_files/'. $trip_name ."-".$string. ".gpx";
+    echo $full_url;
     var_dump($full_url);
 exit();
 
