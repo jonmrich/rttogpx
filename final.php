@@ -10,7 +10,7 @@ use phpGPX\Models\Track;
 require_once 'vendor/autoload.php';
 
 $tripId = $_POST["tripId"];
-$tripId = 26811305;
+//$tripId = 26811305;
 
 $final = [];
 $curl  = curl_init();
