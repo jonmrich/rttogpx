@@ -5,15 +5,17 @@ console.log(tripId);
 		$.post('gpx_files/final.php', {
      tripId:tripId
 }, function(response){
-console.log(response)
+
+$('#final_product').toggle();
+$('#final_url').attr('href', response);
 });
 				$.post('trip.php', {
      tripId:tripId
 }, function(data){
-console.log(data);
+//console.log(data);
 var final = JSON.parse(data)
 var thisthing = final.trip.name;
-console.log(thisthing);
+//console.log(thisthing);
 });
 
 	/*	$.get('https://maps.roadtrippers.com/api/v2/trips/'+tripId, function(data) {

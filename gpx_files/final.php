@@ -96,7 +96,7 @@ if ($err) {
     fclose($fp);
     $full_url = 'https://rt-to-gpx.herokuapp.com/gpx_files/'. $trip_name ."-".$string. ".gpx";
     echo $full_url;
-    var_dump($full_url);
+    
 exit();
 
 }
