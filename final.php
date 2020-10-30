@@ -82,25 +82,18 @@ if ($err) {
     //add track to gpx
     $gpx_file->tracks[] = $track;
     $gpx_file->save($trip_name . '.gpx', \phpGPX\phpGPX::XML_FORMAT);
+   // $gpx_file->save('monkey.gpx', \phpGPX\phpGPX::XML_FORMAT);
+
     //$gpx_file->save($trip_name . '.json', \phpGPX\phpGPX::JSON_FORMAT);
-    header("Content-Type: application/gpx+xml");
+   /* header("Content-Type: application/gpx+xml");
     header("Content-type: application/octet-stream");
     header("Content-Disposition: attachment; filename=" . $trip_name . ".gpx");
-    header("Content-Type:application/force-download");
-    $file = $gpx_file->toXML()->saveXML();
-    
-    exit();
-    
+    header("Content-Type:application/force-download");*/
+   // $file = $gpx_file->toXML()->saveXML();
+   // header("Content-Type: application/gpx+xml");
+    header("Content-type: application/octet-stream");
+    header("Content-Disposition: attachment; filename=" . $trip_name . ".gpx");
+//echo $gpx_file->toXML()->saveXML();
+exit();
 
-if (file_exists($file)) {
-    header('Content-Description: File Transfer');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.basename($file).'"');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($file));
-    readfile($file);
-    exit;
-}
 }
